@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "DATAPATROL Agent tracker",
+  "version": "1.0",
+  "permissions": ["tabs", "storage"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "datapatrol.png",
+      "48": "datapatrol.png",
+      "128": "datapatrol.png"
+    }
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.sellingplatformconnect.amadeus.com/login/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
